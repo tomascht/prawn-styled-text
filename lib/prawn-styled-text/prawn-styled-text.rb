@@ -104,7 +104,8 @@ module PrawnStyledText
         yield :text_node, node.text.delete( "\n\r" ), context
       elsif node.is_a? Oga::XML::Element
         node_name = node.name.downcase.to_sym
-        next if node_name == :p && node.text.blank?
+        # don't hate me
+        next if node_name == :p && node.children.map(&:children).map(&:text).all?(&:blank?)
         element = { name: node_name, node: node }
         yield :opening_tag, element[:name], element
         context.push( element )
