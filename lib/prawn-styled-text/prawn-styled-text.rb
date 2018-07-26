@@ -5,7 +5,7 @@ module PrawnStyledText
   BLOCK_TAGS = [ :br, :p, :div, :h1, :h2, :h3, :h4, :h5, :h6, :hr, :li, :ul ]
   DEF_HEADING_T = 16
   DEF_HEADING_H = 8
-  DEF_MARGIN_UL = 15
+  DEF_MARGIN_UL = 0
   DEF_SYMBOL_UL = "\x95"
   HEADINGS = { h1: 32, h2: 24, h3: 20, h4: 16, h5: 14, h6: 13 }
   RENAME = { 'font-family': :font, 'font-size': :size, 'font-style': :styles, 'letter-spacing': :character_spacing }
