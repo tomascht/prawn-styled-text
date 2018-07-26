@@ -39,7 +39,7 @@ module PrawnStyledText
     context[:flush] ||= true if BLOCK_TAGS.include? data[:name]
     # Evalutate tag
     case data[:name]
-    when :br, :p # new line
+    when :br # new line
       context[:text] ||= [ { text: "\n" } ]
     when :img # image
       context[:flush] ||= true
