@@ -103,7 +103,7 @@ module PrawnStyledText
       if node.is_a? Oga::XML::Text
         yield :text_node, node.text.delete( "\n\r" ), context
       elsif node.is_a? Oga::XML::Element
-        element = { name: node.name.to_sym, node: node }
+        element = { name: node.name.downcase.to_sym, node: node }
         yield :opening_tag, element[:name], element
         context.push( element )
         traverse( node.children, context, &block ) if node.children.count > 0
