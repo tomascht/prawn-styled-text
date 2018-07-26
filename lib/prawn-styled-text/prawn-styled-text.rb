@@ -2,7 +2,7 @@ require 'oga'
 require_relative 'prawn-document'
 
 module PrawnStyledText
-  BLOCK_TAGS = [ :br, :div, :h1, :h2, :h3, :h4, :h5, :h6, :hr, :li, :ul ]
+  BLOCK_TAGS = [ :br, :p, :div, :h1, :h2, :h3, :h4, :h5, :h6, :hr, :li, :ul ]
   DEF_HEADING_T = 16
   DEF_HEADING_H = 8
   DEF_MARGIN_UL = 15
@@ -39,7 +39,7 @@ module PrawnStyledText
     context[:flush] ||= true if BLOCK_TAGS.include? data[:name]
     # Evalutate tag
     case data[:name]
-    when :br # new line
+    when :br, :p # new line
       context[:text] ||= [ { text: "\n" } ]
     when :img # image
       context[:flush] ||= true
